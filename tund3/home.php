@@ -1,7 +1,7 @@
 <?php
 
   //var_dump($_POST);
-  require("../../../../config_vp2020.php");
+  require("../../../config_vp2020.php");
   $database = "if20_anastasija_se";
   if(isset($_POST["ideasubmit"]) and !empty($_POST["ideainput"])){
 	  //loome andmebaasiga ühenduse
@@ -106,7 +106,7 @@ if ($semesterpercent == 100) {
 
 
 //loeme kataloogist piltide nimekirja
-  $allfiles = scandir("../vp_pics/");
+  $allfiles = scandir("vp_pics/");
   //echo $allfiles;
   //var_dump($allfiles);
   $picfiles = array_slice($allfiles, 2);
@@ -118,13 +118,13 @@ if ($semesterpercent == 100) {
   //$i += 3
   for($i = 0;$i < $piccount; $i ++){
 	  //<img src="../img/pildifail" alt="tekst">
-	  $imghtml .= '<img src="../vp_pics/' .$picfiles[$i] .'" alt="Tallinna Ülikool">';
+	  $imghtml .= '<img src="vp_pics/' .$picfiles[$i] .'" alt="Tallinna Ülikool">';
   }
   require("header.php");
 ?>
 
 
-<img src="../img/vp_banner (1).png" alt="Veebiprogrammeerimise kursuse logo">
+<img src="./img/vp_banner.png" alt="Veebiprogrammeerimise kursuse logo">
   <h1>Anastasija Selevjorstova </h1>
   <p>See veebileht on loodud õppetöö kaigus ning ei sisalda mingit tõsiseltvõetavat sisu!</p>
   <p>Leht on loodud veebiprogrammeerimise kursuse raames <a href="http://www.tlu.ee">Tallinna Ulikooli</a> Digitehnoloogiate instituudis.</p>
