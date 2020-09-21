@@ -83,16 +83,11 @@ if ($semesterpercent == 100) {
 ?>
 
 <img src="./img/vp_banner.png" alt="Veebiprogrammeerimise kursuse logo">
-
+<p><a href="randompic.php">randompic</a></p>
+<p><a href="filmilist.php">filmilist</a></p>
   <h1>Anastasija Selevjorstova </h1>
   <p>See veebileht on loodud õppetöö kaigus ning ei sisalda mingit tõsiseltvõetavat sisu!</p>
   <p>Leht on loodud veebiprogrammeerimise kursuse raames <a href="http://www.tlu.ee">Tallinna Ulikooli</a> Digitehnoloogiate instituudis.</p>
-  <ul>
-<li><a href="randompic.php">randompic</a></li>
-<li><a href="ideas.php">ideas</a></li>
-<li><a href="filmilist.php">Filmide nimekirja vaatamine</a></li>
-
-
   <p> <em> Web programming </em> refers to the writing, markup and coding involved in Web development, which includes Web content, Web client and server scripting and network security.</p>
   <blockquote> <p>“Truth can only be found in one place: the code.”</p> <cite> "http://www.goodreads.com/quotes/tag/programming" </cite> </blockquote>
   <p>Lehe avamise hetkel oli: <?php echo $weekdaynameset[$weekdaynow - 1] . ", " . $daynow . ". " . $monthnameset[$monthnow - 1] . " " . $yearnow . " kell on " . $timenow; ?>.</p>
