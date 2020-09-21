@@ -80,6 +80,7 @@ if ($semesterpercent == 100) {
 }
 
   require("header.php");
+
 ?>
 
 <img src="./img/vp_banner.png" alt="Veebiprogrammeerimise kursuse logo">
@@ -88,10 +89,12 @@ if ($semesterpercent == 100) {
   <p>See veebileht on loodud õppetöö kaigus ning ei sisalda mingit tõsiseltvõetavat sisu!</p>
   <p>Leht on loodud veebiprogrammeerimise kursuse raames <a href="http://www.tlu.ee">Tallinna Ulikooli</a> Digitehnoloogiate instituudis.</p>
   <ul>
-<li><a href="randompic.php">randompic</a></li>
-<li><a href="ideas.php">ideas</a></li>
+
+<li><a href="postideas.php">Postita oma idee</a></li>
+<li><a href="ideas.php">Ideed</a></li>
 <li><a href="filmilist.php">Filmide nimekirja vaatamine</a></li>
 
+</ul>
 
   <p> <em> Web programming </em> refers to the writing, markup and coding involved in Web development, which includes Web content, Web client and server scripting and network security.</p>
   <blockquote> <p>“Truth can only be found in one place: the code.”</p> <cite> "http://www.goodreads.com/quotes/tag/programming" </cite> </blockquote>
@@ -101,6 +104,8 @@ if ($semesterpercent == 100) {
   <p>Paevi semestris kokku: <?php echo $semesterdurationdays; ?></p>
   <p>Paevi semestri algusest: <?php echo $fromsemesterstartdays; ?></p>
   <p>Mitu protsenti oppetoost on tehtud: <?php echo $semesterpercent; ?> (%)</p>
+ 
+ <?php require "randompic.php"; ?>
   
 </body>
 </html>
