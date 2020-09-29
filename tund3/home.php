@@ -11,12 +11,12 @@ $daynow = date("d");
 $yearnow = date("Y");
 $timenow = date("H:i:s");
 
-  
+
 // hommik 9 - 12
 // louna 12 - 15
 // ohtu oode 15 - 17
 // ohtu  17 - 21
-// chill 21 - <= 23 
+// chill 21 - <= 23
 // oo 0 - 9
 
 if ($hournow >= 9 && $hournow < 12) {
@@ -43,13 +43,13 @@ if ($hournow == 0 || $hournow < 9) {
   $partofday = "oo";
 }
 
-  
+
 //vaatame semestri kulgemist
 $semesterstart = new DateTime("2020-08-31");
 $semesterend = new DateTime("2020-12-13");
 //selgitame välja nende vahe ehk erinevuse
 $semesterduration = $semesterstart->diff($semesterend);
-//leiame selle päevade arvuna 
+//leiame selle päevade arvuna
 $semesterdurationdays = $semesterduration->format("%r%a");
 //tänane päev
 $today = new DateTime("now");
@@ -76,7 +76,7 @@ if ($semesterpercent <= 0) {
 }
 
 if ($semesterpercent == 100) {
-  $semesterpercent = "semester sai labi"; 
+  $semesterpercent = "semester sai labi";
 }
 
   require("header.php");
@@ -92,8 +92,9 @@ if ($semesterpercent == 100) {
 
 <li><a href="postideas.php">Postita oma idee</a></li>
 <li><a href="ideas.php">Ideed</a></li>
-<li><a href="filmilist.php">Filmide nimekirja vaatamine</a></li>
-
+<li><a href="../tund4/listfilms.php">Filmide nimekirja vaatamine</a></li>
+<li><a href="../tund4/addfilms.php">Filmide lisamine</a></li>
+<li><a href="../tund4/users.php">Uue kasutaja loomine</a></li>
 </ul>
 
   <p> <em> Web programming </em> refers to the writing, markup and coding involved in Web development, which includes Web content, Web client and server scripting and network security.</p>
@@ -104,10 +105,8 @@ if ($semesterpercent == 100) {
   <p>Paevi semestris kokku: <?php echo $semesterdurationdays; ?></p>
   <p>Paevi semestri algusest: <?php echo $fromsemesterstartdays; ?></p>
   <p>Mitu protsenti oppetoost on tehtud: <?php echo $semesterpercent; ?> (%)</p>
- 
+
  <?php require "randompic.php"; ?>
-  
+
 </body>
 </html>
-
-
