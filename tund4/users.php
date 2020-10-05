@@ -97,6 +97,7 @@ if(isset($_POST["usersubmit"])){
 
 <ul>
  <li><a href="../tund3/home.php">Avalehele</a></li>
+ <hr>
 </ul>
 <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
   <label for="firstnameinput">Eesnimi</label>
@@ -140,32 +141,6 @@ if(isset($_POST["usersubmit"])){
 		echo "</select> \n";
 	  ?>
 	  <label for="birthyearinput">Sünniaasta: </label>
-	  <?php
-      echo '<select name="birthdayinput" id="birthdayinput">' ."\n";
-      echo '<option value="" selected disabled>päev</option>' ."\n";
-      for ($i = 1; $i < 32; $i++){
-          echo '<option value="' .$i .'"';
-          if ($i == $birthday){
-              echo " selected";
-          }
-          echo ">" .$i ."</option> \n";
-      }
-      echo "</select> \n";
-    ?>
-<label for="birthmonthinput">Sünnikuu: </label>
-<?php
-  echo '<select name="birthmonthinput" id="birthmonthinput">' ."\n";
-  echo '<option value="" selected disabled>kuu</option>' ."\n";
-  for ($i = 1; $i < 13; $i++){
-      echo '<option value="' .$i .'"';
-      if ($i == $birthmonth){
-          echo " selected";
-      }
-      echo ">" .$monthnameset[$i - 1] ."</option> \n";
-  }
-  echo "</select> \n";
-?>
-<label for="birthyearinput">Sünniaasta: </label>
 <?php
   echo '<select name="birthyearinput" id="birthyearinput">' ."\n";
   echo '<option value="" selected disabled>aasta</option>' ."\n";
@@ -178,9 +153,9 @@ if(isset($_POST["usersubmit"])){
   }
   echo "</select> \n";
 ?>
+
 <br>
 <span><?php echo $birthdateerror ." " .$birthdayerror ." " .$birthmontherror ." " .$birthyearerror; ?></span>
-<br>
 <br>	    
   <label for="emailinput">E-posti aadress</label>
   <input type="email" name="emailinput" id="emailinput" placeholder="E-posti aadress" value="<?php echo $emailinput;?>">
@@ -193,6 +168,7 @@ if(isset($_POST["usersubmit"])){
   <label for="passwordsecondaryinput">Korda salasõna</label>
   <input type="password" name="passwordsecondaryinput" id="passwordsecondaryinput" placeholder="Korda salasõna">
   <span><?php echo $passwordsecondaryinputerror; ?></span>
+  <br>
   <br>
   <input type="submit" name="usersubmit" value="Loo uus kasutaja">
 </form>
