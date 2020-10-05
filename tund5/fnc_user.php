@@ -9,16 +9,19 @@ $database = "if20_anastasija_se";
 //krüpteerime salasõna
 	$options = ["cost" => 12, "salt" => substr(sha1(rand()), 0, 22)];
 	$pwdhash = password_hash($password, PASSWORD_BCRYPT, $options);
-$stmt->bind_param("sssiss", $firstname, $lastname, $birthdate, $gender, $email, $pwdhash);
-if($stmt->execute()){
-		$notice = "ok";
+	$stmt->bind_param("sssiss", $firstname, $lastname, $birthdate, $gender, $email, $pwdhash);
+	
+	if($stmt->execute()){
+		$result = "ok";
 	} else {
-		$notice = $stmt->error;
+		$result = $stmt->error;
         }
-        $stmt->close();
-	$conn->close();
-	return $result;
+		$stmt->close();
+		$conn->close();
+		return $result;
 }
+// funktsioon signup loppeb
+
  function signin($email, $password){
 	$result = null;
 	$conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], $GLOBALS["database"]);
