@@ -1,4 +1,5 @@
 <?php
+  require("../tund6/usesession.php");
   require("../../../config_vp2020.php");
   require("fnc_film.php");
   
@@ -26,12 +27,18 @@
   require("../tund3/header.php");
 ?>
   <img src="../tund3/img/vp_banner.png" alt="Veebiprogrammeerimise kursuse logo">
-  <h1><?php echo $username; ?></h1>
+  <h1><?php echo $_SESSION["userfirstname"] ." " .$_SESSION["userlastname"]; ?></h1>
   <p>See veebileht on loodud õppetöö käigus ning ei sisalda mingit tõsiseltvõetavat sisu!</p>
   <p>Leht on loodud veebiprogrammeerimise kursuse raames <a href="http://www.tlu.ee">Tallinna Ülikooli</a> Digitehnoloogiate instituudis.</p>
   <ul>
    <li><a href="../tund3/home.php">Avalehele</a></li>
   </ul>
+  <li><a href="?logout=1">Logi välja</a>!</li>
+    
+	</ul>
+
+	<hr>
+	
   <form method="POST">
     <label for="titleinput">Filmi pealkiri</label>
 	<input type="text" name="titleinput" id="titleinput" placeholder="Filmi pealkiri">

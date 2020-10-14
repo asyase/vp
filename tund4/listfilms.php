@@ -1,5 +1,6 @@
 <?php
   require("../../../config_vp2020.php");
+  require("../tund6/usesession.php");
   $database = "if20_anastasija_se";
 //loen andmebaasist filmide info
 
@@ -36,8 +37,10 @@
   <p>See veebileht on loodud õppetöö käigus ning ei sisalda mingit tõsiseltvõetavat sisu!</p>
   <p>Leht on loodud veebiprogrammeerimise kursuse raames <a href="http://www.tlu.ee">Tallinna Ülikooli</a> Digitehnoloogiate instituudis.</p>
   <ul>
-   <li><a href="../tund3/home.php">Avalehele</a></li>
-  </ul>
+<p><li><a href="../tund3/home.php">Avalehele</a></li></p>  
+</ul>
+<li><a href="?logout=1">Logi välja</a>!</li>
+</ul>
   <?php echo $filmhtml; ?>
 </body>
 </html>

@@ -1,7 +1,12 @@
 <?php
+
+require("../tund6/usesession.php");
 require("../../../config_vp2020.php");
 require("../tund5/fnc_common.php");
 require("../tund5/fnc_user.php");
+require("../tund3/header.php");
+
+
 
 //kas vajutati salvestusnuppu
 $monthnameset = ["jaanuar", "veebruar", "märts", "aprill", "mai", "juuni", "juuli", "august", "september", "oktoober", "november", "detsember"];
@@ -96,8 +101,9 @@ if(isset($_POST["usersubmit"])){
 <img src="../tund3/img/vp_banner.png" alt="Veebiprogrammeerimise kursuse logo">
 
 <ul>
- <li><a href="../tund3/home.php">Avalehele</a></li>
- <hr>
+<li><a href="../tund3/home.php">Avalehele</a></li>
+
+<li><a href="?logout=1">Logi välja</a>!</li>
 </ul>
 <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
   <label for="firstnameinput">Eesnimi</label>
@@ -110,7 +116,7 @@ if(isset($_POST["usersubmit"])){
   <br>
   <label for="genderinput">Sugu</label>
   <input type="radio" name="genderinput" id="gendermale" value="1" <?php if(isset($_POST["genderinput"]) && $_POST["genderinput"] == 1){echo 'checked="checked"';};?>><label for="gendermale">Mees</label>
-  <input type="radio" name="genderinput" id="genderfemale" value="2" <?php if(isset($_POST["genderinput"]) && $_POST["genderinput"] == 2){echo 'checked="checked"';};?>><label for="gendermale">Naine</label>
+  <input type="radio" name="genderinput" id="genderfemale" value="2" <?php if(isset($_POST["genderinput"]) && $_POST["genderinput"] == 2){echo 'checked="checked"';};?>><label for="genderfemale">Naine</label>
   <span><?php echo $genderinputerror; ?></span>
   <br>
   <label for="birthdayinput">Sünnipäev: </label>

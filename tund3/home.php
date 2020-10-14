@@ -1,4 +1,22 @@
 <?php
+require("../tund6/usesession.php");
+require("../tund3/header.php");
+
+//kui pole sisseloginud
+//if(!isset($_SESSION["userid"])){
+  //jõugu sisselogimise lehele
+  //header("Location:../tund5/page.php");
+//}
+//väljalogimine
+//if(isset($_GET["logout"])){
+  //session_destroy();
+  // header("Location:../tund5/page.php");
+  // exit();
+//}
+
+//require("../tund5/page.php");
+
+
 $username = "Anastasija";
 $fulltimenow = date("d.m.Y H:i:s");
 $hournow = date("H");
@@ -85,16 +103,20 @@ if ($semesterpercent == 100) {
 
 <img src="./img/vp_banner.png" alt="Veebiprogrammeerimise kursuse logo">
 
-  <h1>Anastasija Selevjorstova </h1>
+  <h1> <?php echo $_SESSION["userfirstname"] ." " .$_SESSION["userlastname"]; ?> programmeerib veebi </h1>
   <p>See veebileht on loodud õppetöö kaigus ning ei sisalda mingit tõsiseltvõetavat sisu!</p>
   <p>Leht on loodud veebiprogrammeerimise kursuse raames <a href="http://www.tlu.ee">Tallinna Ulikooli</a> Digitehnoloogiate instituudis.</p>
+  <p><a href="?logout=1">Logi välja</a>!</p>
   <ul>
+
 
 <li><a href="postideas.php">Postita oma idee</a></li>
 <li><a href="ideas.php">Ideed</a></li>
 <li><a href="../tund4/listfilms.php">Filmide nimekirja vaatamine</a></li>
 <li><a href="../tund4/addfilms.php">Filmide lisamine</a></li>
 <li><a href="../tund4/users.php">Uue kasutaja loomine</a></li>
+<li><a href="../tund6/userprofile.php">Minu kasutajaprofiil</a></li>
+<li><a href="../tund6/datarelations.php">Filmiseosed</a></li>
 </ul>
 
   <p> <em> Web programming </em> refers to the writing, markup and coding involved in Web development, which includes Web content, Web client and server scripting and network security.</p>
