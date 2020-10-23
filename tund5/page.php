@@ -1,4 +1,6 @@
 <?php
+ //käivitan sessiooni
+session_start();
 require("../../../config_vp2020.php");
 require ("fnc_user.php");
 require ("fnc_common.php");
@@ -127,16 +129,18 @@ if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
   }
   
   if(empty($emailinputerror) and empty($passwordinputerror)){
-    echo "jass!" .$email .$_POST["passwordinput"];
+    //echo "jass!" .$email .$_POST["passwordinput"];
     $notice = signin($email, $_POST["passwordinput"]);
   }
 }
+
+
 
 require("../tund3/header.php");
 ?>
 
 <img src="../tund3/img/vp_banner.png" alt="Veebiprogrammeerimise kursuse logo">
-<h1><?php echo $username; ?> programmeerib veebi</h1> 
+<h1><?php echo $username; ?> Veebiprogrammeerimine 2020</h1> 
 <p>See veebileht on loodud õppetöö kaigus ning ei sisalda mingit tõsiseltvõetavat sisu!</p>
 <p>Leht on loodud veebiprogrammeerimise kursuse raames <a href="http://www.tlu.ee">Tallinna Ulikooli</a> Digitehnoloogiate instituudis.</p>
 <ul>

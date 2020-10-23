@@ -1,5 +1,7 @@
 <?php
 
+require("../tund6/usesession.php");
+
   require("../../../config_vp2020.php");
   $database = "if20_anastasija_se";
   if(isset($_POST["ideasubmit"]) and !empty($_POST["ideainput"])){
@@ -17,7 +19,11 @@
 
   require("header.php");
 ?>
-<a href="home.php">Avalehele</a>
+<p><li><a href="home.php">Avalehele</a></li></p>  
+</ul>
+<li><a href="?logout=1">Logi välja</a>!</li>
+</ul>
+
    <form method="POST">
     <label>Kirjutage oma esimene pähe tulev mõte!</label>
 	<input type="text" name="ideainput" placeholder="mõttekoht">
