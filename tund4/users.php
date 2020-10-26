@@ -1,6 +1,6 @@
 <?php
 
-require("../tund6/usesession.php");
+//require("../tund6/usesession.php");
 require("../../../config_vp2020.php");
 require("../tund5/fnc_common.php");
 require("../tund5/fnc_user.php");
@@ -102,8 +102,6 @@ if(isset($_POST["usersubmit"])){
 
 <ul>
 <li><a href="../tund3/home.php">Avalehele</a></li>
-
-<li><a href="?logout=1">Logi välja</a>!</li>
 </ul>
 <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
   <label for="firstnameinput">Eesnimi</label>
