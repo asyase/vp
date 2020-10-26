@@ -183,6 +183,7 @@ function old_version_readpersoninmovie(){
 	echo $conn->error;
 	$stmt->bind_result($firstnamefromdb, $lastnamefromdb, $rolefromdb, $titlefromdb);
 	$stmt->execute();
+	
 	while($stmt->fetch()){
 		$notice .= "<p>" .$firstnamefromdb ." " .$lastnamefromdb;
 		if(!empty($rolefromdb)){
