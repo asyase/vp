@@ -141,6 +141,7 @@ function readpersoninmovie(){
 	echo $conn->error;
 	$stmt->bind_result($firstnamefromdb, $lastnamefromdb, $rolefromdb, $titlefromdb);
 	$stmt->execute();
+	#kuni onnestub midagi lugeda
 	while($stmt->fetch()){
 		$notice .= "<p>" .$firstnamefromdb ." " .$lastnamefromdb;
 		if(!empty($rolefromdb)){

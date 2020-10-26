@@ -1,6 +1,7 @@
 <?php
   require("../../../config_vp2020.php");
   require("../tund6/usesession.php");
+  require("../tund4/fnc_film.php");
   $database = "if20_anastasija_se";
 //loen andmebaasist filmide info
 
