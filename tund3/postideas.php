@@ -19,6 +19,7 @@ require("../tund6/usesession.php");
 
   require("header.php");
 ?>
+<img src="../tund3/img/vp_banner.png" alt="Veebiprogrammeerimise kursuse logo">
 <p><li><a href="home.php">Avalehele</a></li></p>  
 </ul>
 <li><a href="?logout=1">Logi välja</a>!</li>
