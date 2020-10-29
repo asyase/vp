@@ -1,11 +1,11 @@
 <?php
-  require("usesession.php");
+  require("../tund6/usesession.php");
   require("../../../config_vp2020.php");
-    
+
   $inputerror = "";
   $notice = "";
   $fileuploadsizelimit = 1048576;
-  $fileuploaddir_orig = "../photoupload_orig/";
+  $fileuploaddir_orig = "./photoupload_orig";
   //kas vajutati salvestusnuppu
   if(isset($_POST["photosubmit"])){
 	//var_dump($_POST);
@@ -39,7 +39,7 @@
 	}
 	
 	if(empty($inputerror)){
-		if(move_uploaded_file($_FILES["photoinput"]["tmp_name"], $fileuploaddir_orig . '/' . $_FILES["photoinput"]["name"])){
+		if(move_uploaded_file($_FILES["photoinput"]["tmp_name"], $fileuploaddir_orig  . '/' . $_FILES["photoinput"]["name"])){
 			$notice .= " Originaalpildi üleslaadimine õnnestus!";
 		} else {
 			$notice .= "Originaalpildi üleslaadimisel tekkis viga!";
@@ -47,13 +47,13 @@
 	}
   }
   
-  require("header.php");
+  require("../tund3/header.php");
 ?>
   <h1><?php echo $_SESSION["userfirstname"] ." " .$_SESSION["userlastname"]; ?></h1>
   <p>See veebileht on loodud õppetöö käigus ning ei sisalda mingit tõsiseltvõetavat sisu!</p>
   <p>Leht on loodud veebiprogrammeerimise kursuse raames <a href="http://www.tlu.ee">Tallinna Ülikooli</a> Digitehnoloogiate instituudis.</p>
   <ul>
-   <li><a href="home.php">Avalehele</a></li>
+   <li><a href="../tund3/home.php">Avalehele</a></li>
    <li><a href="?logout=1">Logi välja</a>!</li>
   </ul>
   <hr>
