@@ -118,8 +118,11 @@ if ($semesterpercent == 100) {
 <li><a href="../tund6/userprofile.php">Minu kasutajaprofiil</a></li>
 <li><a href="../tund6/datarelations.php">Filmiinfo seoste lisamine</a></li>
 <li><a href="../tund6/listfilmpersons.php">Filmitegelaste loend</a></li>
+<<<<<<< HEAD
 <li><a href="../tund8/photoupload.php">Galeriipiltide üleslaadimine</a></li>
 
+=======
+>>>>>>> 569f8d8d729f4284048507819b934983bdc633b9
 </ul>
 
   <p> <em> Web programming </em> refers to the writing, markup and coding involved in Web development, which includes Web content, Web client and server scripting and network security.</p>
