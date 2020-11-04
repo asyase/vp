@@ -1,6 +1,14 @@
 <?php
 require("../tund6/usesession.php");
 require("../tund3/header.php");
+require("../tund9/classes/Generic_class.php");
+//testime klassi kasutamiset
+  //$myfirstclass = new Generic(8);
+  //echo " Saladus on: " .$myfirstclass->mysecret;
+  //echo " Oluliselt avalikum saladus on: " .$myfirstclass->yoursecret;
+  //$myfirstclass->showValue();
+  //unset($myfirstclass);
+  //echo " Oluliselt avalikum saladus on: " .$myfirstclass->yoursecret;
 
 //kui pole sisseloginud
 //if(!isset($_SESSION["userid"])){
