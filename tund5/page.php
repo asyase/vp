@@ -1,8 +1,18 @@
 <?php
-session_start();
+//session_start();
+
+require("../tund9/classes/SessionManager.class.php");
+
+//sessioonihaldus
+SessionManager::sessionStart("vp",0, "/~anassel/","greeny.cs.tlu.ee");
+
+
 require("../../../config_vp2020.php");
 require ("fnc_user.php");
 require ("fnc_common.php");
+
+
+
 $username = "";
 $fulltimenow = date("d.m.Y H:i:s");
 $hournow = date("H");

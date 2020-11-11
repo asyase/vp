@@ -1,7 +1,7 @@
 <?php
 require("../tund6/usesession.php");
-require("../tund3/header.php");
-require("../tund9/classes/Generic_class.php");
+
+
 //testime klassi kasutamiset
   //$myfirstclass = new Generic(8);
   //echo " Saladus on: " .$myfirstclass->mysecret;
@@ -24,7 +24,15 @@ require("../tund9/classes/Generic_class.php");
 
 //require("../tund5/page.php");
 
+//tegeleme cookitega
+//setcookie peab olema enne html algust
+//maarame nimi:
+setcookie("vpvisitor", $_SESSION["userfirstname"] ." " .$_SESSION["userlastname"],
+ time() + (86400 * 8), "/~anassel/", "greeny.cs.tlu.ee", isset($_SERVER["HTTPS"]), true);
 
+  //kustutamiseks antakse aegumistähtaeg minevikus, näiteks time() - 3600
+  require("../tund3/header.php");
+  
 $username = "Anastasija";
 $fulltimenow = date("d.m.Y H:i:s");
 $hournow = date("H");
@@ -126,12 +134,23 @@ if ($semesterpercent == 100) {
 <li><a href="../tund6/userprofile.php">Minu kasutajaprofiil</a></li>
 <li><a href="../tund6/datarelations.php">Filmiinfo seoste lisamine</a></li>
 <li><a href="../tund6/listfilmpersons.php">Filmitegelaste loend</a></li>
-<<<<<<< HEAD
 <li><a href="../tund8/photoupload.php">Galeriipiltide üleslaadimine</a></li>
-
-=======
->>>>>>> 569f8d8d729f4284048507819b934983bdc633b9
+<li><a href="../tund10/photogallery_public.php">Avalike fotode galerii</a></li>
 </ul>
+<?php
+if(count($_COOKIE) > 0){
+  echo "<p>Küpsised on lubatud! Leidsin: " .count($_COOKIE) ." küpsist.</p> \n";
+  var_dump($_COOKIE);
+} else {
+  echo "<p>Küpsised pole lubatud!</p> \n";
+}
+if(isset($_COOKIE["vpvisitor"])){
+  echo "<p>Küpsisest selgus viimase külastaja nimi: " .$_COOKIE["vpvisitor"] .". \n";
+} else {
+  echo "<p>Viimase kasutaja nime ei leitud!</p> \n";
+}
+?>
+
 
   <p> <em> Web programming </em> refers to the writing, markup and coding involved in Web development, which includes Web content, Web client and server scripting and network security.</p>
   <blockquote> <p>“Truth can only be found in one place: the code.”</p> <cite> "http://www.goodreads.com/quotes/tag/programming" </cite> </blockquote>
