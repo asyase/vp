@@ -4,7 +4,7 @@
 require("../tund9/classes/SessionManager.class.php");
 //sessioonihaldus
 
-SessionManager::sessionStart("vp", 0, "/~anassel", "greeny.cs.tlu.ee");
+SessionManager::sessionStart("vp", 0, "/~anassel", "localhost:5555");
 
 require("../../../config_vp2020.php");
 require ("fnc_user.php");
@@ -141,6 +141,7 @@ if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 
 require("../tund3/header.php");
+print_r($_SESSION);
 ?>
 
 <img src="../tund3/img/vp_banner.png" alt="Veebiprogrammeerimise kursuse logo">

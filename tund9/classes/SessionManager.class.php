@@ -7,10 +7,10 @@ class SessionManager
 		session_name($name . '_Session');
 
 		// Set SSL level
-		$https = isset($secure) ? $secure : isset($_SERVER['HTTPS']);
+		$https = isset($secure) ? false : isset($_SERVER['HTTPS']);
 
 		// Set session cookie options
-		session_set_cookie_params($limit, $path, $domain, $https, true);
+		//session_set_cookie_params($limit, $path, $domain, $https, true);
 		session_start();
 
 		// Make sure the session hasn't expired, and destroy it if it has

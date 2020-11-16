@@ -44,7 +44,7 @@
 		$temphtml = null;
 		//<img src="failinimi.laiend" alt="tekst">
 		while($stmt->fetch()){
-			$temphtml .= '<img src="' .$GLOBALS["fileuploaddir_thumb"] .$filenamefromdb .'" alt="' .$alttextfromdb .'">' ."\n";
+			$temphtml .= '<img src="/~anassel/vp/photoupload_thum/' .$filenamefromdb .'" alt="' .$alttextfromdb .'">' ."\n";
 		}
 		if(!empty($temphtml)){
 			$thumbshtml = "<div> \n" .$temphtml ."</div> \n";
@@ -70,7 +70,7 @@
 		//</div>
 		while($stmt->fetch()){
 			$temphtml .= '<div class="thumbgallery">' ."\n";
-			$temphtml .= '<img src="' .$GLOBALS["fileuploaddir_thumb"] .$filenamefromdb .'" alt="' .$alttextfromdb .'" class="thumbs">' ."\n";
+			$temphtml .= '<img src="/~anassel/vp/photoupload_normal/' .$filenamefromdb .'" alt="' .$alttextfromdb .'" class="thumbs">' ."\n";
 			$temphtml .= "</div> \n"; 
 		}
 		if(!empty($temphtml)){

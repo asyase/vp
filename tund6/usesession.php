@@ -1,8 +1,9 @@
 <?php
   //session_start();
+  
   require("../tund9/classes/SessionManager.class.php");
   //sessioonihaldus
-  SessionManager::sessionStart("vp", 0, "/~anassel", "greeny.cs.tlu.ee");
+  SessionManager::sessionStart("vp", 0, "/~anassel", "localhost:5555");
   
   //logime välja
   if(isset($_GET["logout"])){

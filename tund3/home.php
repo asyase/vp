@@ -28,7 +28,7 @@ require("header.php");
 //setcookie peab olema enne html algust
 
 //määrame: nimi, väärtus, aegumine, veebikataloog (vaikimisi "/"), domeen, kas https, http only ehk ainult üle veebi
-setcookie("vpvisitor", $_SESSION["userfirstname"] ." " .$_SESSION["userlastname"], time() + (86400 * 8), "/~anassel/", "greeny.cs.tlu.ee", isset($_SERVER["HTTPS"]), true);
+setcookie("vpvisitor", $_SESSION["userfirstname"] ." " .$_SESSION["userlastname"], time() + (86400 * 8), "/~anassel/", "localhost:5555", isset($_SERVER["HTTPS"]), true);
 //kustutamiseks antakse aegumistähtaeg minevikus, näiteks time() - 3600
   
   
@@ -148,7 +148,8 @@ if ($semesterpercent == 100) {
 		echo "<p>Küpsisest selgus viimase külastaja nimi: " .$_COOKIE["vpvisitor"] .". \n";
 	} else {
 		echo "<p>Viimase kasutaja nime ei leitud!</p> \n";
-	}
+  }
+  
   ?>
 
   <p> <em> Web programming </em> refers to the writing, markup and coding involved in Web development, which includes Web content, Web client and server scripting and network security.</p>

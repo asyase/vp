@@ -78,7 +78,7 @@
 				$wmh = imagesy($watermark);
 				$wmx = imagesx($this->mynewtempimage) - $wmw - 10;
 				$wmy = imagesy($this->mynewtempimage) - $wmh - 10;
-				//kopeerin vesimärgi pildile
+				// kopeerin vesimärgi pildile
 				imagecopy($this->mynewtempimage, $watermark, $wmx, $wmy, 0, 0, $wmw, $wmh);
 				imagedestroy($watermark);
 			}

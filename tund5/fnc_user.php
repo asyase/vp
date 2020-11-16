@@ -66,7 +66,7 @@
 					
 					$stmt->close();
 					$conn->close();
-					header("Location:../tund3/home.php");
+					header("Location: ../tund3/home.php");
 					exit();
 					
 				} else {

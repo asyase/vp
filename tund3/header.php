@@ -29,4 +29,4 @@
     
 </head>
 <body>
-<img src="../img/vp_banner.png" alt="Veebiprogrammeerimise kursuse logo">
+<img src="/~anassel/vp/img/vp_banner.png" alt="Veebiprogrammeerimise kursuse logo">
