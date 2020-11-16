@@ -1,6 +1,5 @@
 <?php
 	$database = "if20_anastasija_se";
-
 	function storePhotoData($filename, $alttext, $privacy){
 		$notice = null;
 		$conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], $GLOBALS["database"]);
@@ -17,7 +16,7 @@
 		$conn->close();
 		return $notice;
 	}
-
+	
 	function countPublicPhotos($privacy){
 		$photocount = 0;
 		$conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], $GLOBALS["database"]);
@@ -66,17 +65,20 @@
 		$stmt->bind_result($filenamefromdb, $alttextfromdb);
 		$stmt->execute();
 		$temphtml = null;
+		//<div class="thumbgallery">
 		//<img src="failinimi.laiend" alt="tekst">
+		//</div>
 		while($stmt->fetch()){
-			$temphtml .='<div= class="thumbgallery">' . "\n";
-			$temphtml .= '<img src="' .$GLOBALS["fileuploaddir_thumb"] .$filenamefromdb .'" alt="' .$alttextfromdb .'" class="thumbs">' . "\n";
-			$temphtml .= "</div> \n";
+			$temphtml .= '<div class="thumbgallery">' ."\n";
+			$temphtml .= '<img src="' .$GLOBALS["fileuploaddir_thumb"] .$filenamefromdb .'" alt="' .$alttextfromdb .'" class="thumbs">' ."\n";
+			$temphtml .= "</div> \n"; 
 		}
 		if(!empty($temphtml)){
-			$thumbshtml = '<div= class="galleryarea">' . "\n" .$temphtml ."</div> \n";
-			
+			$thumbshtml = '<div class="galleryarea">' ."\n" .$temphtml ."</div> \n";
 		}
 		$stmt->close();
 		$conn->close();
 		return $thumbshtml;
 	}
+	
+	
