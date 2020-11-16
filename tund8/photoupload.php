@@ -4,6 +4,7 @@
   require("../tund9/fnc_photo.php");
   require("../tund5/fnc_common.php");
   require("../tund9/classes/Photoupload_class.php");
+  require("../tund3/header.php");
     
 
   $inputerror = "";
@@ -27,7 +28,9 @@
 	//var_dump($_FILES);
 	$privacy = intval($_POST["privinput"]);
 	$alttext = test_input($_POST["altinput"]);
-	
+
+	//------------------------------------------------------------
+
 	//kas on üldse pilt
 	$check = getimagesize($_FILES["photoinput"]["tmp_name"]);
 	if($check !== false){
@@ -44,20 +47,28 @@
 	} else {
 		$inputerror = "Valitud fail ei ole pilt!";
 	}
+
+	//---------------------------------------------------------------------------------------------
 	
 	//ega pole liiga suur fail
 	if($_FILES["photoinput"]["size"] > $fileuploadsizelimit){
 		$inputerror .= " Valitud fail on liiga suur!";
 	}
+
+	//---------------------------------------------------------------------------------------------
 	
 	//genereerime failinime
 	$timestamp = microtime(1) * 10000;
 	$filename = $filenameprefix .$timestamp ."." .$filetype;
+
+	//---------------------------------------------------------------------------------------------
 	
 	//kas fail on olemas
 	if(file_exists($fileuploaddir_orig .$filename)){
 		$inputerror .= " Sellise nimega fail on juba olemas!";
 	}
+
+	//---------------------------------------------------------------------------------------------
 	
 	if(empty($inputerror)){
 		//võtame kasutusele Photoupload klassi
@@ -70,6 +81,12 @@
 		//$mynewimage = resizePhoto($mytempimage, $photomaxw, $photomaxh, true);
 		$myphoto->resizePhoto($photomaxw, $photomaxh, true);
 		$myphoto->addWatermark($watermark);
+
+
+		//---------------------------------------------------------------------------------------------
+
+
+
 		//salvestame vähendatud pildi faili
 		//$result = savePhotoFile($mynewimage, $filetype, $fileuploaddir_normal .$filename);
 		$result = $myphoto->savePhotoFile($fileuploaddir_normal .$filename);
@@ -79,6 +96,10 @@
 			$inputerror .= "Vähendatud pildi salvestamisel tekkis tõrge!";
 		}
 				
+
+		//---------------------------------------------------------------------------------------------
+
+
 		//pisipilt
 		//$mynewimage = resizePhoto($mytempimage, $thumbsize, $thumbsize);
 		$myphoto->resizePhoto($thumbsize, $thumbsize);
@@ -89,6 +110,10 @@
 		} else {
 			$inputerror .= "Pisipildi salvestamisel tekkis tõrge!";
 		}
+
+		//---------------------------------------------------------------------------------------------
+
+
 		
 		//kui vigu pole, salvestame originaalpildi
 		if(empty($inputerror)){
@@ -100,6 +125,10 @@
 			}
 		}
 		
+
+		//---------------------------------------------------------------------------------------------
+
+
 		//kui vigu pole, salvestame info andmebaasi
 		if(empty($inputerror)){
 			$result = storePhotoData($filename, $alttext, $privacy);
@@ -118,7 +147,7 @@
 	}
   }
   
-  require("../tund3/header.php");
+  
 ?>
   <h1><?php echo $_SESSION["userfirstname"] ." " .$_SESSION["userlastname"]; ?></h1>
   <p>See veebileht on loodud õppetöö käigus ning ei sisalda mingit tõsiseltvõetavat sisu!</p>
@@ -155,5 +184,3 @@
 	</p>
   
   <hr>  
-</body>
-</html>

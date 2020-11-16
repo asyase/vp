@@ -1,5 +1,6 @@
 <?php
   require("usesession.php");
+  require("../tund3/header.php");
   //var_dump($_POST);
   require("../../../config_vp2020.php");
   $database = "if20_anastasija_se";
@@ -28,7 +29,7 @@
   }
   
   //$username = "Anastasija";
-  require("../tund3/header.php");
+ 
 ?>
 
   <h1><?php echo $_SESSION["userfirstname"] ." " .$_SESSION["userlastname"]; ?></h1>

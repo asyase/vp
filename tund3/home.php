@@ -1,6 +1,6 @@
 <?php
 require("../tund6/usesession.php");
-
+require("header.php");
 
 //testime klassi kasutamiset
   //$myfirstclass = new Generic(8);
@@ -26,12 +26,13 @@ require("../tund6/usesession.php");
 
 //tegeleme cookitega
 //setcookie peab olema enne html algust
-//maarame nimi:
+
+//määrame: nimi, väärtus, aegumine, veebikataloog (vaikimisi "/"), domeen, kas https, http only ehk ainult üle veebi
 setcookie("vpvisitor", $_SESSION["userfirstname"] ." " .$_SESSION["userlastname"], time() + (86400 * 8), "/~anassel/", "greeny.cs.tlu.ee", isset($_SERVER["HTTPS"]), true);
 //kustutamiseks antakse aegumistähtaeg minevikus, näiteks time() - 3600
-require("header.php");
   
-$username = "Anastasija";
+  
+//$username = "Anastasija";
 $fulltimenow = date("d.m.Y H:i:s");
 $hournow = date("H");
 $monthnow= date("n");
@@ -111,7 +112,7 @@ if ($semesterpercent == 100) {
   $semesterpercent = "semester sai labi";
 }
 
-  require("header.php");
+  
 
 ?>
 
@@ -159,7 +160,9 @@ if ($semesterpercent == 100) {
   <p>Paevi semestri algusest: <?php echo $fromsemesterstartdays; ?></p>
   <p>Mitu protsenti oppetoost on tehtud: <?php echo $semesterpercent; ?> (%)</p>
 
- <?php require "randompic.php"; ?>
+ <?php 
+ 
+ require "randompic.php"; ?>
 
 </body>
 </html>

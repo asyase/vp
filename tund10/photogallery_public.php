@@ -6,7 +6,7 @@
   $notice = "";
   $fileuploaddir_orig = "../tund8/photoupload_orig/";
   $fileuploaddir_normal = "../tund8/photoupload_normal/";
-  $fileuploaddir_thumb = "..tund9/classes/photoupload_thumb/";
+  $fileuploaddir_thumb = "../tund9/classes/photoupload_thumb/";
 
   $gallerypagelimit = 3;
   $page = 1;
@@ -25,13 +25,13 @@
   
   $tolink = '<link rel="stylesheet" type="text/css" href="style/gallery.css">' ."\n";
     
-  require("header.php");
+  require("../tund3/header.php");
 ?>
   <h1><?php echo $_SESSION["userfirstname"] ." " .$_SESSION["userlastname"]; ?></h1>
   <p>See veebileht on loodud õppetöö käigus ning ei sisalda mingit tõsiseltvõetavat sisu!</p>
   <p>Leht on loodud veebiprogrammeerimise kursuse raames <a href="http://www.tlu.ee">Tallinna Ülikooli</a> Digitehnoloogiate instituudis.</p>
   <ul>
-   <li><a href="home.php">Avalehele</a></li>
+   <li><a href="../tund3/home.php">Avalehele</a></li>
    <li><a href="?logout=1">Logi välja</a>!</li>
   </ul>
   <hr>
@@ -55,5 +55,3 @@
   ?>
   
   <hr>  
-</body>
-</html>
