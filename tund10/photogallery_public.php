@@ -8,7 +8,9 @@
   $fileuploaddir_normal = "../tund8/photoupload_normal/";
   $fileuploaddir_thumb = "../tund9/classes/photoupload_thumb/";
 
-  $gallerypagelimit = 3;
+
+
+  $gallerypagelimit = 5;
   $page = 1;
   $photocount = countPublicPhotos(2);
   
@@ -23,7 +25,9 @@
   //$publicphotothumbshtml = readAllPublicPhotoThumbs(2);
   $publicphotothumbshtml = readAllPublicPhotoThumbsPage(2, $gallerypagelimit, $page);
   
-  $tolink = '<link rel="stylesheet" type="text/css" href="style/gallery.css">' ."\n";
+  $tolink = '<link rel="stylesheet" type="text/css" href="../tund10/style/gallery.css">' ."\n";
+  $tolink .= '<link rel="stylesheet" type="text/css" href="../tund10/style/modal.css">' ."\n";
+  $tolink .= '<script src="/home/anassel/public_html/tund11/javascript/modal.js" defer></script>' ."\n";
     
   require("../tund3/header.php");
 ?>
@@ -34,6 +38,34 @@
    <li><a href="../tund3/home.php">Avalehele</a></li>
    <li><a href="?logout=1">Logi välja</a>!</li>
   </ul>
+
+  <!--Modaalaken fotogalerii jaoks-->
+  <div id="modalarea" class="modalarea">
+	<!--sulgemisnupp-->
+	<span id="modalclose" class="modalclose">&times;</span>
+	<!--pildikoht-->
+	<div class="modalhorizontal">
+		<div class="modalvertical">
+			<p id="modalcaption"></p>
+      <img id="modalimg" src="/home/anassel/public_html/vp/img/empty.png" alt="galeriipilt">
+			 
+      <br>
+			<div id="rating" class="modalRating">
+				<label><input id="rate1" name="rating" type="radio" value="1">1</label>
+				<label><input id="rate2" name="rating" type="radio" value="2">2</label>
+				<label><input id="rate3" name="rating" type="radio" value="3">3</label>
+				<label><input id="rate4" name="rating" type="radio" value="4">4</label>
+				<label><input id="rate5" name="rating" type="radio" value="5">5</label>
+				<button id="storeRating">Salvesta hinnang!</button>
+				<br>
+				<p id="avgRating"></p>
+			</div>
+			
+		</div>
+	</div>
+  </div>
+      
+
   <hr>
   <h2>Fotogalerii</h2>
   <p>

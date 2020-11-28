@@ -135,6 +135,7 @@ if ($semesterpercent == 100) {
 <li><a href="../tund6/listfilmpersons.php">Filmitegelaste loend</a></li>
 <li><a href="../tund8/photoupload.php">Galeriipiltide üleslaadimine</a></li>
 <li><a href="../tund10/photogallery_public.php">Avalike fotode galerii</a></li>
+<li><a href="../tund12/addnews.php">Uudise lisamine</a></li>
 </ul>
 <hr>
   <?php

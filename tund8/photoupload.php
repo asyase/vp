@@ -5,7 +5,9 @@
   require("../tund5/fnc_common.php");
   require("../tund9/classes/Photoupload_class.php");
   require("../tund3/header.php");
-    
+
+  //$tolink = '<script src="/home/anassel/public_html/tund11/javascript/checkfilesize.js" defer></script>' ."\n";
+  $tolink = '<script src="javascript/checkfilesize.js" defer></script>' ."\n";
 
   $inputerror = "";
   $notice = "";
@@ -174,9 +176,9 @@
 	<label for="privinput3">Avalik</label>
 	
 	<br>
-	<input type="submit" name="photosubmit" value="Lae pilt üles">
+	<input type="submit" id="photosubmit" name="photosubmit" value="Lae pilt üles">
   </form>
-  <p>
+  <p id="notice">
   <?php
 	echo $inputerror;
 	echo $notice;
