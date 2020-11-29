@@ -66,7 +66,7 @@
 		$temphtml = null;
 		//<img src="failinimi.laiend" alt="tekst">
 		while($stmt->fetch()){
-			$temphtml .= '<img src="' .$GLOBALS["fileuploaddir_thumb"] .$filenamefromdb .'" alt="' .$alttextfromdb .'">' ."\n";
+			$temphtml .= '<img src="aaaa' .$GLOBALS["fileuploaddir_thumb"] .$filenamefromdb .'" alt="' .$alttextfromdb .'">' ."\n";
 		}
 		if(!empty($temphtml)){
 			$thumbshtml = "<div> \n" .$temphtml ."</div> \n";

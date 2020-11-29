@@ -23,7 +23,7 @@ function openModal(e){
 		document.getElementById("rate" + i).checked = false;
 	}
     //modalimg.src = photodir + e.target.dataset.fn;
-    modalimg.src = "showphoto.php?photo=" + e.target.dataset.fn;
+    modalimg.src = "../tund11/showphoto.php?photo=" + e.target.dataset.id;
 	
 	photoid = e.target.dataset.id;
 	modalimg.alt = e.target.alt;

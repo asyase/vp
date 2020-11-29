@@ -2,7 +2,7 @@
 <?php
 	require("../tund6/usesession.php");
 	require("../../../config_vp2020.php");
-	$database = "if20_anastasija_selevjorstova";
+	$database = "if20_anastasija_se";
 	$photoid = intval($_REQUEST["photo"]);
 	$type = "image/png";
 	$output = "../img/wrong.png";
@@ -13,7 +13,7 @@
 	if($stmt->execute()){
 		if($stmt->fetch()){
 			if($useridfromdb == $_SESSION["userid"] or $privacyfromdb >= 2){
-				$output = $photouploaddir_normal .$filenamefromdb;
+				$output = $GLOBALS["fileuploaddir_normal"] .$filenamefromdb;
 				$check = getimagesize($output);
 				$type = $check["mime"];
 			} else {
@@ -24,11 +24,11 @@
 	}
 	$stmt->close();
 	$conn->close();
-	header("Content-type: " .$type);
-    readfile($output);
+	header('Content-Transfer-Encoding: binary');
+	header("Content-Type: " .$type);
+	header('Content-Length: ' . filesize($output));
+	readfile($output);
     //header("Content-type: image/jpeg");
 //readfile("/home/anassel/public_html/vp/photoupload_normal" .$_REQUEST["photo"]);
 //require("usesession.php");  //see rikkus osadel tudengitel töö ära!?
 	//$dir = "../photoupload_normal/";
-
-	

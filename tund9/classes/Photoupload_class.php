@@ -4,12 +4,43 @@
 		private $imagetype;
 		private $mytempimage;
 		private $mynewtempimage;
+		private $imagefilename;
+		private $filenameprefix = "vp_";
+
+		private $fileTypes = [
+			"image/jpeg" => "jpg",
+			"image/png"=> "png",
+			"image/gif"=> "gif",
+		];
 		
-		function __construct($photoinput, $filetype){
-			$this->photoinput = $photoinput;
-			$this->imagetype  = $filetype;
-			//var_dump($this->photoinput);
-			$this->createImageFromfile();
+		function __construct($photoinput){
+			$getImageInfo = $this->getImageInfo($_FILES["photoinput"]["tmp_name"]);
+
+			if ($getImageInfo !== false && in_array($getImageInfo['mime'], array_keys($this->fileTypes))) {
+				$this->photoinput = $photoinput;
+				$this->imagetype  = $this->fileTypes[$getImageInfo['mime']];
+				$this->imagefilename = $this->generateFileName();
+				//var_dump($this->photoinput);
+				$this->createImageFromfile();
+			}
+		}
+
+		private function getImageInfo($imageFile) {
+			$imageInfo = getimagesize($imageFile);
+			if ($imageInfo === false) {
+				return false;
+			}
+
+			return $imageInfo;
+		}
+
+		// genereerime faili nime
+		private function generateFileName() {
+			return $this->filenameprefix . (microtime(1) * 10000) . "." .$this->imagetype;
+		}
+
+		public function getImageFileName() {
+			return $this->imagefilename;
 		}
 		
 		function __destruct(){
@@ -85,6 +116,8 @@
 		}
 		
 		public function savePhotoFile($target){
+			$target = $target . $this->imagefilename;
+
 			$notice = null;
 			if($this->imagetype == "jpg"){
 				if(imagejpeg($this->mynewtempimage, $target, 90)){
@@ -112,6 +145,8 @@
 		}
 		
 		public function saveOriginalPhoto($target){
+			$target = $target . $this->imagefilename;
+
 			$notice = null;
 			if(move_uploaded_file($this->photoinput["tmp_name"], $target)){
 				$notice = 1;

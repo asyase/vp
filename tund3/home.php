@@ -116,8 +116,6 @@ if ($semesterpercent == 100) {
 
 ?>
 
-<img src="./img/vp_banner.png" alt="Veebiprogrammeerimise kursuse logo">
-
   <h1> <?php echo $_SESSION["userfirstname"] ." " .$_SESSION["userlastname"]; ?> programmeerib veebi </h1>
   <p>See veebileht on loodud õppetöö kaigus ning ei sisalda mingit tõsiseltvõetavat sisu!</p>
   <p>Leht on loodud veebiprogrammeerimise kursuse raames <a href="http://www.tlu.ee">Tallinna Ulikooli</a> Digitehnoloogiate instituudis.</p>

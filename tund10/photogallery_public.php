@@ -4,11 +4,6 @@
   require("../tund9/fnc_photo.php");
   
   $notice = "";
-  $fileuploaddir_orig = "../tund8/photoupload_orig/";
-  $fileuploaddir_normal = "../tund8/photoupload_normal/";
-  $fileuploaddir_thumb = "../tund9/classes/photoupload_thumb/";
-
-
 
   $gallerypagelimit = 5;
   $page = 1;
@@ -25,9 +20,9 @@
   //$publicphotothumbshtml = readAllPublicPhotoThumbs(2);
   $publicphotothumbshtml = readAllPublicPhotoThumbsPage(2, $gallerypagelimit, $page);
   
-  $tolink = '<link rel="stylesheet" type="text/css" href="../tund10/style/gallery.css">' ."\n";
-  $tolink .= '<link rel="stylesheet" type="text/css" href="../tund10/style/modal.css">' ."\n";
-  $tolink .= '<script src="/home/anassel/public_html/tund11/javascript/modal.js" defer></script>' ."\n";
+  $tolink = '<link rel="stylesheet" type="text/css" href="styles/gallery.css">' ."\n";
+  $tolink .= '<link rel="stylesheet" type="text/css" href="styles/modal.css">' ."\n";
+  $tolink .= '<script src="../tund11/javascript/modal.js" defer></script>' ."\n";
     
   require("../tund3/header.php");
 ?>
@@ -47,7 +42,7 @@
 	<div class="modalhorizontal">
 		<div class="modalvertical">
 			<p id="modalcaption"></p>
-      <img id="modalimg" src="/home/anassel/public_html/vp/img/empty.png" alt="galeriipilt">
+      <img id="modalimg" src="../img/empty.png" alt="galeriipilt">
 			 
       <br>
 			<div id="rating" class="modalRating">
