@@ -24,10 +24,13 @@
 	}
 	$stmt->close();
 	$conn->close();
-	header('Content-Transfer-Encoding: binary');
+	//header('Content-Transfer-Encoding: binary');
 	header("Content-Type: " .$type);
-	header('Content-Length: ' . filesize($output));
+	//header('Content-Length: ' . filesize($output));
 	readfile($output);
+
+
+	
     //header("Content-type: image/jpeg");
 //readfile("/home/anassel/public_html/vp/photoupload_normal" .$_REQUEST["photo"]);
 //require("usesession.php");  //see rikkus osadel tudengitel töö ära!?

@@ -167,19 +167,19 @@
 	// }
 // ---------------------------------------------------------------------------------------------------------------------------------------------------------
 // VIIMASE UPLOADITUD PILDI LEIDMINE
-	// function readLastPublicPhoto($filename, $alttext){
-		// $notice = null;
-		// $thumbshtml = "<p>Kahjuks fotosid ei leitud!</p> \n";
-		// $conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], $GLOBALS["database"]);
-		// $stmt = $conn->prepare("SELECT filename, alttext FROM vpphotos WHERE vpphotos_id=(SELECT MAX(vpphotos_id) FROM vpphotos WHERE privacy=? AND deleted IS NULL)");
-		// echo $conn->error;
-		// $stmt->bind_param("ss", $filename, $alttext);
-		// $stmt->bind_result($filenamefromdb, $alttextfromdb);
-		// $stmt->execute();
-		// $stmt->close();
-		// $conn->close();
-		// return $lastphotohtml;
-	// }
+	 function readLastPublicPhoto($filename, $alttext){
+		$notice = null;
+		$thumbshtml = "<p>Kahjuks fotosid ei leitud!</p> \n";
+		 $conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], $GLOBALS["database"]);
+		 $stmt = $conn->prepare("SELECT filename, alttext FROM vpphotos WHERE vpphotos_id=(SELECT MAX(vpphotos_id) FROM vpphotos WHERE privacy=? AND deleted IS NULL)");
+		echo $conn->error;
+		 $stmt->bind_param("ss", $filename, $alttext);
+		$stmt->bind_result($filenamefromdb, $alttextfromdb);
+		$stmt->execute();
+		$stmt->close();
+		 $conn->close();
+		 return $lastphotohtml;
+	 }
 
 
 

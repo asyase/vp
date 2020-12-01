@@ -9,6 +9,9 @@ SessionManager::sessionStart("vp", 0, "/~anassel", "localhost:5555");
 require("../../../config_vp2020.php");
 require ("fnc_user.php");
 require ("fnc_common.php");
+require ("../tund9/fnc_photo.php");
+require ("../tund12/fnc_news.php");
+
 $result = "";
 $username = "";
 $fulltimenow = date("d.m.Y H:i:s");

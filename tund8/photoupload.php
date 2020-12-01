@@ -7,7 +7,7 @@
   require("../tund3/header.php");
 
   //$tolink = '<script src="/home/anassel/public_html/tund11/javascript/checkfilesize.js" defer></script>' ."\n";
-  $tolink = '<script src="javascript/checkfilesize.js" defer></script>' ."\n";
+  $tolink = '<script src="../tund11/javascript/checkfilesize.js" defer></script>' ."\n";
 
   $inputerror = "";
   $notice = "";
@@ -20,7 +20,8 @@
   $alttext = null;
   $watermark = "/home/anassel/public_html/vp/img/vp_logo_w100_overlay.png";
   
-  //kas vajutati salvestusnuppu
+  //-----------------------------------kas vajutati salvestusnuppu----------------------------------
+
   if(isset($_POST["photosubmit"])){
 	//var_dump($_POST);
 	//var_dump($_FILES);
@@ -28,6 +29,24 @@
 	$alttext = test_input($_POST["altinput"]);
 
 	//------------------------------------------------------------
+
+
+	//kas on üldse pilt
+	// [PHOTO CLASSI FAILIS POOLELI]
+	//$check = getimagesize($_FILES["photoinput"]["tmp_name"]);
+	//if($check !== false){
+		//if($check["mime"] == "image/jpeg"){
+			//$filetype = "jpg";
+		//}
+		//if($check["mime"] == "image/png"){
+			$filetype = "png";
+		//}
+		//if($check["mime"] == "image/gif"){
+			//$filetype = "gif";
+		//}
+	//} else {
+		//$inputerror = "Valitud fail ei ole pilt!";
+	//}
 
 	if($_FILES["photoinput"]["size"] > $fileuploadsizelimit){
 		$inputerror .= " Valitud fail on liiga suur!";
