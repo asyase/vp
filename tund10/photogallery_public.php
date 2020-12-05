@@ -5,7 +5,7 @@
   
   $notice = "";
 
-  $gallerypagelimit = 5;
+  $gallerypagelimit = 16;
   $page = 1;
   $photocount = countPublicPhotos(2);
   

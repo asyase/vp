@@ -1,12 +1,10 @@
-
 <?php
 	require("../tund6/usesession.php");
+	require("../../../config_vp2020.php");
+	$database = "if20_anastasija_se";
 	
 	$id = $_REQUEST["photoid"];
 	$rating = $_REQUEST["rating"];
-	
-	require("../../../config_vp2020.php");
-	$database = "if20_anastasija_se";
 	
 	$conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], $GLOBALS["database"]);
 	$stmt = $conn->prepare("INSERT INTO vpphotoratings (photoid, userid, rating) VALUES(?,?,?)");

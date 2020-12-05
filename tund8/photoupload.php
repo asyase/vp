@@ -28,10 +28,8 @@
 	$privacy = intval($_POST["privinput"]);
 	$alttext = test_input($_POST["altinput"]);
 
-	//------------------------------------------------------------
+	//------------------------------//kas on üldse pilt---------------------------------------
 
-
-	//kas on üldse pilt
 	// [PHOTO CLASSI FAILIS POOLELI]
 	//$check = getimagesize($_FILES["photoinput"]["tmp_name"]);
 	//if($check !== false){
@@ -39,7 +37,7 @@
 			//$filetype = "jpg";
 		//}
 		//if($check["mime"] == "image/png"){
-			$filetype = "png";
+			//$filetype = "png";
 		//}
 		//if($check["mime"] == "image/gif"){
 			//$filetype = "gif";
@@ -47,10 +45,24 @@
 	//} else {
 		//$inputerror = "Valitud fail ei ole pilt!";
 	//}
+	//---------------------------------------ega pole liiga suur fail-----------------------------------
 
 	if($_FILES["photoinput"]["size"] > $fileuploadsizelimit){
 		$inputerror .= " Valitud fail on liiga suur!";
 	}
+//----------------------//genereerime failinime------------------------------------
+
+//$timestamp = microtime(1) * 10000;
+//$filename = $filenameprefix .$timestamp ."." .$filetype;
+
+//-------------------------kas fail on olemas--------------------
+
+
+
+// [PHOTO CLASSI FAILIS POOLELI]
+//if(file_exists($fileuploaddir_orig .$filename)){
+	//$inputerror .= " Sellise nimega fail on juba olemas!";
+//}
 
 	//---------------------------------------------------------------------------------------------
 	
@@ -61,7 +73,9 @@
 		//teen väiksemaks
 		//loome image objekti ehk pikslikogumi
 
-		//muudame suurust
+		//-------------------------------//muudame suurust------------------------------
+
+
 		//$mynewimage = resizePhoto($mytempimage, $photomaxw, $photomaxh, true);
 		$myphoto->resizePhoto($photomaxw, $photomaxh, true);
 		$myphoto->addWatermark($watermark);
@@ -71,7 +85,9 @@
 
 
 
-		//salvestame vähendatud pildi faili
+		//-----------------------------//salvestame vähendatud pildi faili-------------------------------------------
+
+
 		//$result = savePhotoFile($mynewimage, $filetype, $fileuploaddir_normal .$filename);
 		$result = $myphoto->savePhotoFile($fileuploaddir_normal);
 		if($result == 1){
@@ -81,10 +97,10 @@
 		}
 				
 
-		//---------------------------------------------------------------------------------------------
+
+		//---------------//pisipilt---------------------------------------
 
 
-		//pisipilt
 		//$mynewimage = resizePhoto($mytempimage, $thumbsize, $thumbsize);
 		$myphoto->resizePhoto($thumbsize, $thumbsize);
 		//$result = savePhotoFile($mynewimage, $filetype, $fileuploaddir_thumb .$filename);
@@ -96,10 +112,10 @@
 		}
 
 		//---------------------------------------------------------------------------------------------
-
-
 		
 		//kui vigu pole, salvestame originaalpildi
+
+
 		if(empty($inputerror)){
 			$result = $myphoto->saveOriginalPhoto($fileuploaddir_orig);
 			if($result == 1){

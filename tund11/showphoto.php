@@ -1,4 +1,3 @@
-
 <?php
 	require("../tund6/usesession.php");
 	require("../../../config_vp2020.php");

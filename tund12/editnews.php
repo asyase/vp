@@ -5,7 +5,7 @@
   require("../tund5/fnc_common.php");
   require("../tund9/classes/Photoupload_class.php");
   
-  //$photouploaddir_news
+  $id = isset($_GET["news"]) ? intval($_GET["news"]) : 0;
   
   //$tolink = "\t" .'<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>' ."\n";
   $tolink = "\t" .'<script src="https://cdn.tiny.cloud/1/u1u92ru9dr488xutdm6algzst8zo9pv5ap1tei8p0cjfkghf/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>' ."\n";
@@ -29,14 +29,11 @@
   $filesizelimit = 2097152;//1048576;
   $filenameprefix = "vpnews_";
   $filename = null;
-  $watermark = "/home/anassel/public_html/vp/img/vp_logo_w100_overlay.png";
+  $watermark = "../img/vp_logo_w100_overlay.png";
   $photomaxwidth = 600;
   $photomaxheight = 400;
   $alttext = null;
 
-  //var_dump($_POST);
-  //var_dump($_FILES);
-    
   //kui klikiti submit, siis ...
   if(isset($_POST["newssubmit"])){
 	if(strlen($_POST["newstitleinput"]) == 0){
@@ -110,8 +107,8 @@
 		$timestamp = microtime(1) * 10000;
 		
 		//salvestame foto
-		$myphoto = new Photoupload($_FILES["photoinput"], $filetype);
-		$filename = $myphoto->getImageFileName();
+        $myphoto = new Photoupload($_FILES["photoinput"], $filetype);
+        $filename = $myphoto->getImageFileName();
 		//teeme pildi väiksemaks
 		$myphoto->resizePhoto($photomaxwidth, $photomaxheight, true);
 		//lisame vesimärgi
@@ -134,17 +131,31 @@
 	if(empty($inputerror) and empty($photoinputerror)){
 		//uudis salvestada
 		//echo $news;
-		$result = saveNews($newstitle, $news, $expiredate, $filename, $alttext);
+		$result = updateNews($id, $newstitle, $news, $expiredate, $filename, $alttext);
 		if($result == 1){
 			$notice = "Uudis salvestatud!";
 			$error = "";
-			$newstitle = "";
-			$news = "";
-			//$expiredate = date("Y-m-d");
+			$inputerror = null;
+			$photoinputerror = null;
 			$expiredate = null;
 		}
 	}
 	}
+	
+	//loen uudise sisse
+  $newstoedit = readNewsToEdit($id);
+  //var_dump($newstoedit);
+  if(!empty($newstoedit)){
+	  $newstitle = $newstoedit["title"];
+	  $news = $newstoedit["content"];
+	  $expire = new DateTime($newstoedit["expire"]);
+	  $expireday = date_format($expire, "d");
+	  $expiremonth = date_format($expire, "m");
+	  $expireyear = date_format($expire, "Y");
+	  $imgsrc = $newstoedit["filename"];
+	  $alttext = $newstoedit["alttext"];
+	  $deleted = $newstoedit["deleted"];
+  }
 
 	require("../tund3/header.php");
 ?>
@@ -154,12 +165,13 @@
   
   <ul>
     <li><a href="?logout=1">Logi välja</a>!</li>
+	<li><a href="listnews.php"><strong>Tagasi uudiste loendisse</strong></a></li>
     <li><a href="../tund3/home.php">Avalehele</a></li>
   </ul>
   
   <hr>
   
-  <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
+  <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])."?news=" .$id;?>" enctype="multipart/form-data">
     <label for="newstitleinput">Sisesta uudise pealkiri</label>
 	<input id="newstitleinput" name="newstitleinput" type="text" value="<?php echo $newstitle; ?>" required>
 	<br>
@@ -203,6 +215,15 @@
 			echo ">" .$i ."</option> \n";
 		}
 		echo "\t </select> \n";
+	  ?>
+	  <br><br>
+	  <input type="text" name="deletedinput" value="<?php echo $deleted; ?>">
+	  <br><br>
+	  <?php
+		if(!empty($imgsrc)){
+			echo "<p>Senine pilt</p> \n";
+			echo '<img src="' .$photouploaddir_news.$imgsrc .'" alt="' .$alttext .'">' ."\n";
+		}
 	  ?>
 	  <br><br>
 	  <label for="photoinput">Vali pildifail!</label>

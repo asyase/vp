@@ -12,7 +12,8 @@ window.onload = function(){
 	for (let i = 0; i < allThumbs.length; i ++){
 		allThumbs[i].addEventListener("click", openModal);
 	}
-	document.getElementById("modalclose").addEventListener("click", closeModal);
+    document.getElementById("modalclose").addEventListener("click", closeModal);
+    modalimg.addEventListener("click", closeModal);
 	document.getElementById("storeRating").addEventListener("click", storeRating);
 }
 
@@ -32,14 +33,15 @@ function openModal(e){
 }
 
 function closeModal(){
-	modal.style.display = "none";
+    modal.style.display = "none";
+    modalimg.src = "../img/empty.png";
 }
 
 function storeRating(){
     let rating = 0;
     for(let i = 1; i < 6; i ++){
         if(document.getElementById("rate" + i).checked) {
-            rating = 1
+            rating = i
         }
     }
     if(rating>0){
@@ -54,7 +56,7 @@ function storeRating(){
             }
 
         };
-        webrequest.open("GET","storePhotoRating.php?rating=" + rating + "&photoid=" + photoid, true);
+        webrequest.open("GET","../tund11/storePhotoRating.php?rating=" + rating + "&photoid=" + photoid, true);
         webrequest.send()
         
         //ajax loppeb 

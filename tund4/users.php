@@ -4,7 +4,7 @@
 require("../../../config_vp2020.php");
 require("../tund5/fnc_common.php");
 require("../tund5/fnc_user.php");
-require("../tund3/header.php");
+
 
 
 
@@ -97,11 +97,15 @@ if(isset($_POST["usersubmit"])){
            $result = signup($firstnameinput, $lastnameinput, $emailinput, $genderinput, $birthdate, $passwordinput);
         }
 }
+require("../tund3/header.php");
 ?>
-<img src="../tund3/img/vp_banner.png" alt="Veebiprogrammeerimise kursuse logo">
+
+
 
 <ul>
-<li><a href="../tund3/home.php">Avalehele</a></li>
+
+<li><a href="../tund3/home.php">Avalehele</a></li> 
+
 </ul>
 <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
   <label for="firstnameinput">Eesnimi</label>

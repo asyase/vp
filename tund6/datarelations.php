@@ -178,7 +178,7 @@
 	require("../tund3/header.php");
   ?>
   <html>
-  <img src="../tund3/img/vp_banner.png" alt="Veebiprogrammeerimise kursuse logo">
+  
 	<h1><?php echo $_SESSION["userfirstname"] ." " .$_SESSION["userlastname"]; ?></h1>
   <body>
 	<ul>

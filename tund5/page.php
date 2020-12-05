@@ -144,10 +144,8 @@ if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 
 require("../tund3/header.php");
-print_r($_SESSION);
 ?>
 
-<img src="../tund3/img/vp_banner.png" alt="Veebiprogrammeerimise kursuse logo">
 <h1><?php echo $username; ?> programmeerib veebi</h1> 
 <p>See veebileht on loodud õppetöö kaigus ning ei sisalda mingit tõsiseltvõetavat sisu!</p>
 <p>Leht on loodud veebiprogrammeerimise kursuse raames <a href="http://www.tlu.ee">Tallinna Ulikooli</a> Digitehnoloogiate instituudis.</p>
@@ -189,11 +187,14 @@ print_r($_SESSION);
   $imghtml = "";
   $piccount = count($picfiles);
   $imghtml .= '<img src="../tund3/vp_pics/' . $picfiles[mt_rand(1,$piccount)-1] . '">'; 
-  require("../tund3/header.php");
   ?>
 
   <?php echo $imghtml; ?>
 
-
+  <hr>
+  <h2>Uudised</h2>
+  <?php
+	echo latestNews(5);
+  ?>
 </body>
 </html>

@@ -134,20 +134,23 @@ if ($semesterpercent == 100) {
 <li><a href="../tund8/photoupload.php">Galeriipiltide üleslaadimine</a></li>
 <li><a href="../tund10/photogallery_public.php">Avalike fotode galerii</a></li>
 <li><a href="../tund12/addnews.php">Uudise lisamine</a></li>
+<li><a href="../tund12/listnews.php">Uudiste toimetamine</a></li>
 </ul>
 <hr>
   <?php
+  //---------------------------KUPSISED---------------------------------------------------
 	if(count($_COOKIE) > 0){
-		echo "<p>Küpsised on lubatud! Leidsin: " .count($_COOKIE) ." küpsist.</p> \n";
-		var_dump($_COOKIE);
+		//echo "<p>Küpsised on lubatud! Leidsin: " .count($_COOKIE) ." küpsist.</p> \n";
+		//var_dump($_COOKIE);
 	} else {
 		echo "<p>Küpsised pole lubatud!</p> \n";
 	}
 	if(isset($_COOKIE["vpvisitor"])){
 		echo "<p>Küpsisest selgus viimase külastaja nimi: " .$_COOKIE["vpvisitor"] .". \n";
 	} else {
-		echo "<p>Viimase kasutaja nime ei leitud!</p> \n";
+		//echo "<p>Viimase kasutaja nime ei leitud!</p> \n";
   }
+  //----------------------------------------------------------------------------------------
   
   ?>
 
