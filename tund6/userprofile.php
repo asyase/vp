@@ -36,7 +36,8 @@
   <p>See veebileht on loodud õppetöö käigus ning ei sisalda mingit tõsiseltvõetavat sisu!</p>
   <p>Leht on loodud veebiprogrammeerimise kursuse raames <a href="http://www.tlu.ee">Tallinna Ülikooli</a> Digitehnoloogiate instituudis.</p>
   <ul>
-   <li><a href="../tund3/home.php">Avalehele</a></li>
+   <li><a href="home.php">Avalehele</a></li>
+   &thinsp;
    <li><a href="?logout=1">Logi välja</a>!</li>
   </ul>
   <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">

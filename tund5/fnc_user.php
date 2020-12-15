@@ -146,3 +146,35 @@
 		$conn->close();
 		return $notice;
 	}
+
+function getuserslist() {
+  $conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], $GLOBALS["database"]);
+  
+  $stmt=$conn->prepare("SELECT vpusers_id, firstname, lastname FROM vpusers");
+  echo $conn->error;
+  $stmt->bind_result($vpusers_id, $firstname, $lastname);
+  $stmt->execute();
+  $userslist = "";
+  while($stmt->fetch()){
+      if($vpusers_id != null && (!empty($firstname) || !empty($lastname)) && $vpusers_id != $_SESSION['userid']){
+           $userslist .= '<option value="' .$vpusers_id .'">' . $firstname . ' '  . $lastname . "</option>\n";
+        }
+    }
+  $stmt->close();
+  $conn->close();
+  return $userslist;
+}
+
+function getusernamebyid($vpuser_id) {
+  $conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], $GLOBALS["database"]);
+
+  $stmt=$conn->prepare("SELECT firstname, lastname FROM vpusers WHERE vpusers_id = ?");
+  echo $conn->error;
+  $stmt->bind_param("i", $vpuser_id);
+  $stmt->bind_result($firstname, $lastname);
+  $stmt->execute();
+  $stmt->fetch();
+  $stmt->close();
+  $conn->close();
+  return $firstname . " " . $lastname;
+}

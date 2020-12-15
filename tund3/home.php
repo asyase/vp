@@ -1,6 +1,8 @@
 <?php
 require("../tund6/usesession.php");
 require("header.php");
+require("../../../config_vp2020.php");
+require("../eksam/fnc_messages.php");
 
 //testime klassi kasutamiset
   //$myfirstclass = new Generic(8);
@@ -135,6 +137,7 @@ if ($semesterpercent == 100) {
 <li><a href="../tund10/photogallery_public.php">Avalike fotode galerii</a></li>
 <li><a href="../tund12/addnews.php">Uudise lisamine</a></li>
 <li><a href="../tund12/listnews.php">Uudiste toimetamine</a></li>
+<li><a href="../eksam/messages.php"><strong>Sõnumid <?php echo checknewmessages(); ?></strong></a></li>
 </ul>
 <hr>
   <?php

@@ -13,7 +13,7 @@ require ("../tund9/fnc_photo.php");
 require ("../tund12/fnc_news.php");
 
 $result = "";
-$username = "";
+$username = "Nastja";
 $fulltimenow = date("d.m.Y H:i:s");
 $hournow = date("H");
 $monthnow= date("n");
